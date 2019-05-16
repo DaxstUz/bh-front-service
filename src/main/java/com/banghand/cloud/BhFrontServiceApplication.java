@@ -6,7 +6,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-@EnableFeignClients(basePackages = {"com.banghand.cloud.user.client"})
+@EnableFeignClients(basePackages = {"com.banghand.cloud.user.client","com.banghand.cloud.contentservice.client"})
 @ServletComponentScan
 public class BhFrontServiceApplication {
 

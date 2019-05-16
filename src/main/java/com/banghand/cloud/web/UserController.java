@@ -3,9 +3,7 @@ package com.banghand.cloud.web;
 import com.banghand.cloud.user.client.ResumeClient;
 import com.banghand.cloud.user.dto.ResumeDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author sunyz
@@ -23,5 +21,11 @@ public class UserController {
     public ResumeDto getResume(){
         return resumeClient.getById(1L);
     }
+
+    @PostMapping(value = "resume")
+    public ResumeDto addResume(@RequestBody ResumeDto obj){
+        return resumeClient.addObject(obj);
+    }
+
 
 }

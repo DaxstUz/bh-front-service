@@ -26,6 +26,13 @@
             <artifactId>bh-user-service-api</artifactId>
             <version>${bh.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.banghand.cloud</groupId>
+            <artifactId>bh-content-service-api</artifactId>
+            <version>${bh.version}</version>
+        </dependency>
     </dependencies>
+
 
 </project>
