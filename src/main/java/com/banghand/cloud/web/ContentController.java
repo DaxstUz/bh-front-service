@@ -2,11 +2,9 @@ package com.banghand.cloud.web;
 
 import com.banghand.cloud.contentservice.client.ContentClient;
 import com.banghand.cloud.contentservice.dto.ContentDto;
+import com.banghand.cloud.utils.Page;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,12 +21,12 @@ public class ContentController {
     private ContentClient contentClient;
 
     @PostMapping(value = "content")
-    public ContentDto create(ContentDto contentDto) {
+    public ContentDto create(@RequestBody ContentDto contentDto) {
         return contentClient.create(contentDto);
     }
 
     @PutMapping(value = "content")
-    public ContentDto update(ContentDto contentDto) {
+    public ContentDto update(@RequestBody ContentDto contentDto) {
         return contentClient.update(contentDto);
     }
 
@@ -36,4 +34,10 @@ public class ContentController {
     public List<ContentDto> list(){
         return contentClient.list();
     }
+
+    @GetMapping(value = "content/page")
+    public Page<ContentDto> page(@RequestParam(value = "title",required = false) String title,@RequestParam(value = "status",required = false) String status ,@RequestParam(value = "page",defaultValue = "1") Integer page, @RequestParam(value = "row",defaultValue = "10") Integer row){
+        return contentClient.page(title,status,page,row);
+    }
+
 }
