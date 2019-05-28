@@ -33,14 +33,14 @@ public class CorsFilter implements Filter {
 
         String origin = request.getHeader("Origin");
 //        response.setHeader("Access-Control-Allow-Origin", origin);
-//        response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+        response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
         response.setHeader("Access-Control-Max-Age", "3600");
         response.setHeader("Access-Control-Allow-Headers", "x-requested-with,Authorization,Content-Type,Access-Token");
         response.setHeader("Access-Control-Allow-Credentials", "true");
 
         response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Access-Control-Allow-Credentials", "true");
-        response.setHeader("Access-Control-Allow-Methods", "*");
+//        response.setHeader("Access-Control-Allow-Methods", "*");
 //        response.setHeader("Access-Control-Allow-Headers", "Content-Type,Access-Token");//这里“Access-Token”是我要传到后台的内容key
         response.setHeader("Access-Control-Expose-Headers", "*");
 

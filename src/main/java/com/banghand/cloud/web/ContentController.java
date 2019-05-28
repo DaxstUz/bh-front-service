@@ -16,7 +16,6 @@ import java.util.List;
 @RestController
 public class ContentController {
 
-
     @Autowired
     private ContentClient contentClient;
 
@@ -33,6 +32,11 @@ public class ContentController {
     @GetMapping(value = "content/list")
     public List<ContentDto> list(){
         return contentClient.list();
+    }
+
+    @DeleteMapping(value = "content")
+    public void del(@RequestParam(value = "id") Long id) {
+        contentClient.del(id);
     }
 
     @GetMapping(value = "content/page")
