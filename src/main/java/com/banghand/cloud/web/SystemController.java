@@ -32,12 +32,6 @@ public class SystemController {
         return param;
     }
 
-    @GetMapping(value = "login")
-    public String login() {
-        System.out.println("login");
-        return "hello login";
-    }
-
     @PostMapping(value = "upload")
     public List<String> upload(HttpServletRequest request) {
 
